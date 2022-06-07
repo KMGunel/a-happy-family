@@ -8,10 +8,16 @@ public class Human {
     private String surname;
     private short year;
     private byte iq;
-    private Pet pet;
-    private Human mother;
-    private Human father;
     private String[][] schedule;
+
+    static {
+        System.out.println("Human class is being loaded");
+    }
+
+    {
+        System.out.println("A new object is created");
+    }
+
 
     public Human() {
     }
@@ -26,8 +32,7 @@ public class Human {
         this.name = name;
         this.surname = surname;
         this.year = year;
-        this.mother = mother;
-        this.father = father;
+
     }
 
     public Human(String name, String surname, short year, byte iq, Pet pet, Human mother, Human father, String[][] schedule) {
@@ -35,9 +40,6 @@ public class Human {
         this.surname = surname;
         this.year = year;
         this.iq = iq;
-        this.pet = pet;
-        this.mother = mother;
-        this.father = father;
         this.schedule = schedule;
     }
 
@@ -73,30 +75,6 @@ public class Human {
         this.iq = iq;
     }
 
-    public Pet getPet() {
-        return pet;
-    }
-
-    public void setPet(Pet pet) {
-        this.pet = pet;
-    }
-
-    public Human getMother() {
-        return mother;
-    }
-
-    public void setMother(Human mother) {
-        this.mother = mother;
-    }
-
-    public Human getFather() {
-        return father;
-    }
-
-    public void setFather(Human father) {
-        this.father = father;
-    }
-
     public String[][] getSchedule() {
         return schedule;
     }
@@ -105,39 +83,24 @@ public class Human {
         this.schedule = schedule;
     }
 
-    public void greetPet(){
-        System.out.printf("Hello,%s\n",pet.getNickname());
-    }
-    public void describePet(){
-        System.out.printf("I have a %s, he is %d years old, he is %s \n",pet.getSpecies(),pet.getAge(),pet.getTrickLevel()>50?"sly":"almost not sly");
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Human human = (Human) o;
-        return year == human.year && iq == human.iq && Objects.equals(name, human.name) && Objects.equals(surname, human.surname) && Objects.equals(pet, human.pet) && Objects.equals(mother, human.mother) && Objects.equals(father, human.father) && Arrays.equals(schedule, human.schedule);
+        return year == human.year && iq == human.iq && name.equals(human.name) && surname.equals(human.surname) && Arrays.equals(schedule, human.schedule);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, surname, year, iq, pet, mother, father);
+        int result = Objects.hash(name, surname, year, iq);
         result = 31 * result + Arrays.hashCode(schedule);
         return result;
     }
 
     @Override
     public String toString() {
-        return "Human{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", year=" + year +
-                ", iq=" + iq +
-                ", pet=" + pet +
-                ", mother=" + mother +
-                ", father=" + father +
-                ", schedule=" + Arrays.toString(schedule) +
-                '}';
+        return String.format("Human{name=%s, surname=%s, year=%d, iq=%d,schedule=%s}",
+                name, surname, (int) year, (int) iq, Arrays.toString(schedule));
     }
 }

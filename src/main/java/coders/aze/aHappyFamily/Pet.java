@@ -10,7 +10,13 @@ public class Pet {
     private byte trickLevel;
     private String[] habits;
 
-    public String[] doghabits={"eat","drink","sleep"};
+    static {
+        System.out.println("Pet class is being loaded");
+    }
+
+    {
+        System.out.println("A new object is created");
+    }
 
 
     public Pet() {
@@ -94,24 +100,19 @@ public class Pet {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pet pet = (Pet) o;
-        return age == pet.age && trickLevel == pet.trickLevel && Objects.equals(species, pet.species) && Objects.equals(nickname, pet.nickname) && Arrays.equals(habits, pet.habits) && Arrays.equals(doghabits, pet.doghabits);
+        return age == pet.age && trickLevel == pet.trickLevel && species.equals(pet.species) && nickname.equals(pet.nickname) && Arrays.equals(habits, pet.habits);
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hash(species, nickname, age, trickLevel);
         result = 31 * result + Arrays.hashCode(habits);
-        result = 31 * result + Arrays.hashCode(doghabits);
         return result;
     }
 
     @Override
     public String toString() {
-        return "dog{" +
-                "nickname='" + "Rock" + '\'' +
-                ", age=" + 5 +
-                ", trickLevel=" + 75 +
-                ", habits=" + Arrays.toString(doghabits) +
-                '}';
+        return String.format("Pet{species=%s, nickname=%s, trickLevel=%d,age = %d, habits=%s}",
+                species, nickname, trickLevel, age, Arrays.toString(habits));
     }
 }
