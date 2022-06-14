@@ -9,9 +9,7 @@ public class Main{
      Pet pet = new Pet(ESpecies.DOG,"Maks", (byte) 8, (byte) 90, new String[]{"barking", "greeting", "sleeping"});
      Human boy = new Human("ogul", "atayev",(short) 1999,(byte) 98,pet,mother,father, new String[][]{{"mondey","working"},{"tuesday","sleeping"}});
      Human girl = new Human("Girl","girl",(short)2003);
-     father.setSchedule({{EDayOfWeek.MONDEY,EDayOfWeek.THURSDAY},{"Walking","Reading"}});
-
-
+     father.setSchedule(new String[][]{{EDayOfWeek.MONDEY.toString(),"Walking"},{EDayOfWeek.THURSDAY.toString(),"Reading"}});
 
      Family family = new Family(father,mother);
 
