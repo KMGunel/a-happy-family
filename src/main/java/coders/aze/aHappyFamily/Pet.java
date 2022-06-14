@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Pet {
-    private String species;
+    private ESpecies species;
     private String nickname;
     private byte age;
     private byte trickLevel;
@@ -20,15 +20,14 @@ public class Pet {
 
 
     public Pet() {
-
     }
 
-    public Pet(String species, String nickname) {
+    public Pet(ESpecies species, String nickname) {
         this.species = species;
         this.nickname = nickname;
     }
 
-    public Pet(String species, String nickname, byte age, byte trickLevel, String[] habits) {
+    public Pet(ESpecies species, String nickname, byte age, byte trickLevel, String[] habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
@@ -36,12 +35,12 @@ public class Pet {
         this.habits = habits;
     }
 
-    public String getSpecies() {
+    public ESpecies getSpecies() {
 
         return species;
     }
 
-    public void setSpecies(String species) {
+    public void setSpecies(ESpecies species) {
 
         this.species = species;
     }
@@ -100,7 +99,7 @@ public class Pet {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pet pet = (Pet) o;
-        return age == pet.age && trickLevel == pet.trickLevel && species.equals(pet.species) && nickname.equals(pet.nickname) && Arrays.equals(habits, pet.habits);
+        return age == pet.age && trickLevel == pet.trickLevel && species == pet.species && nickname.equals(pet.nickname) && Arrays.equals(habits, pet.habits);
     }
 
     @Override
