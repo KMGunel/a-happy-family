@@ -7,7 +7,7 @@ public class Main{
      Human father = new Human("ata","Atayev", (short) 1964);
      Human mother = new Human("ana","Atayev", (short) 1968);
      Pet pet = new Pet(ESpecies.DOG,"Maks", (byte) 8, (byte) 90, new String[]{"barking", "greeting", "sleeping"});
-     Human boy = new Human("ogul", "atayev",(short) 1999,(byte) 98,pet,mother,father, new String[][]{{"mondey","working"},{"tuesday","sleeping"}});
+     Human boy = new Human("ogul", "atayev",(short) 1999,(byte) 98,pet,mother,father, new String[][]{{EDayOfWeek.MONDEY.toString(),"Walking"},{EDayOfWeek.THURSDAY.toString(),"Reading"}});
      Human girl = new Human("Girl","girl",(short)2003);
      father.setSchedule(new String[][]{{EDayOfWeek.MONDEY.toString(),"Walking"},{EDayOfWeek.THURSDAY.toString(),"Reading"}});
 
