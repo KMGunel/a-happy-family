@@ -3,8 +3,8 @@ package coders.aze.aHappyFamily;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Pet {
-    private ESpecies species;
+public abstract class Pet {
+    private ESpecies species = ESpecies.UNKNOWN;
     private String nickname;
     private byte age;
     private byte trickLevel;
@@ -22,13 +22,11 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(ESpecies species, String nickname) {
-        this.species = species;
-        this.nickname = nickname;
+    public Pet(String nickname) {
+                this.nickname = nickname;
     }
 
-    public Pet(ESpecies species, String nickname, byte age, byte trickLevel, String[] habits) {
-        this.species = species;
+    public Pet(String nickname, byte age, byte trickLevel, String[] habits) {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
@@ -86,13 +84,8 @@ public class Pet {
         System.out.println("I am eating");
     }
 
-    public void respond() {
-        System.out.printf("Hello, owner. I am - %s . I miss you!\n", this.nickname);
-    }
+    public abstract void respond() ;
 
-    public void foul() {
-        System.out.println("I need to cover it up");
-    }
 
     @Override
     public boolean equals(Object o) {

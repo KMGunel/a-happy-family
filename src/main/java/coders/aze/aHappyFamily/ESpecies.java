@@ -1,6 +1,7 @@
 package coders.aze.aHappyFamily;
 
 public enum ESpecies {
+    UNKNOWN(false,0,false),
     DOG(false,4,true),
     CAT(false,4,true),
     BIRD(true,2,false),

@@ -10,6 +10,7 @@ public class Human {
     private byte iq;
     private String[][] schedule;
 
+
     static {
         System.out.println("Human class is being loaded");
     }
@@ -82,6 +83,7 @@ public class Human {
     public void setSchedule(String[][] schedule) {
         this.schedule = schedule;
     }
+
 
     @Override
     public boolean equals(Object o) {
